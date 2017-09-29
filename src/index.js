@@ -1,6 +1,8 @@
 module.exports = function zeros(expression) {
-	var count = 0,
-	    arr = [];
+	var exp = expression,
+        count = 0,
+	    arr = [],
+        countEven = 0;
 	if(expression.indexOf("*") >= 0){
 		expression = expression.split("*");
 		var len = expression.length;
@@ -15,17 +17,16 @@ module.exports = function zeros(expression) {
 			} else {
                 check2(j);
 			}
+
+            for (var n = 0; n < arr.length; n++){
+                if (arr[n] % 2 === 0){
+                    countEven++;
+                }
+            }
 		}
 
-		var c = 0;
+		countEven == 0 && exp.indexOf('!!') >= 0 ? count = 0 : count = count;
 
-		for (var n = 0; n < arr.length; n++){
-			if (arr[n] % 2 === 0){
-				c++;
-			}
-		}
-
-		c ? count = count : count = 0;
 	} else {
 	    var j = parseInt(expression);
 
